@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://bseq02ngchl7m"]
+
+[ext_resource type="Texture2D" uid="uid://dbwmju8n4qi1n" path="res://asset/sprites/O5NY920.jpg" id="1_5eihk"]
+[ext_resource type="PackedScene" uid="uid://bbasbjv134b27" path="res://scenes/character_body_2d.tscn" id="2_g466u"]
+[ext_resource type="Texture2D" uid="uid://c8lg0llbmjsai" path="res://asset/sprites/Rocks_source.png" id="2_jcsdj"]
+[ext_resource type="PackedScene" uid="uid://va8rfp0x4mv6" path="res://scenes/ennemie.tscn" id="4_baeb5"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_baeb5"]
+texture = ExtResource("2_jcsdj")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_e62vq"]
+sources/0 = SubResource("TileSetAtlasSource_baeb5")
+
+[node name="wold" type="Node2D"]
+
+[node name="background" type="Sprite2D" parent="."]
+texture_filter = 2
+texture_repeat = 2
+position = Vector2(1, 3)
+texture = ExtResource("1_5eihk")
+region_enabled = true
+region_rect = Rect2(-6.392, -0.537, 5589.026, 5263.875)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="background"]
+tile_set = SubResource("TileSet_e62vq")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_g466u")]
+position = Vector2(501, 286)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+
+[node name="ennemie_ant" parent="." instance=ExtResource("4_baeb5")]
+position = Vector2(829, 474)
+mouvement_speed = 20

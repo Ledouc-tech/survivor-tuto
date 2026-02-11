@@ -1,0 +1,163 @@
+[gd_scene load_steps=8 format=3 uid="uid://bwk882fflua18"]
+
+[ext_resource type="Texture2D" uid="uid://br3kq1xh4vxaf" path="res://asset/sprites/champi.png" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://dy04bbq218a44" path="res://asset/sprites/light.png" id="2_qhqgy"]
+
+[sub_resource type="GDScript" id="GDScript_lj8jo"]
+script/source = "extends CharacterBody2D
+	
+var mouvement_speed = 300.
+@onready var sprite = $Sprite2D
+@onready var walktimer = get_node(\"%walkTimer\")
+
+func _physics_process(_delta):
+	mouvement()
+
+func mouvement():
+	var x_mov = Input.get_action_strength(\"right\") - Input.get_action_strength(\"left\")
+	var y_mov = Input.get_action_strength(\"down\") - Input.get_action_strength(\"up\")
+	var mov = Vector2(x_mov,y_mov)
+	if mov.x > 0:
+		sprite.flip_h = true
+	elif mov.x < 0:
+		sprite.flip_h = false 
+		
+	if mov != Vector2.ZERO:
+		if walktimer.is_stopped():
+			if sprite.frame >= sprite.hframes - 1:
+				sprite.frame = 0
+			else:
+				sprite.frame += 1
+				walktimer.start()
+				
+				
+	velocity = mov.normalized()*mouvement_speed
+	move_and_slide()
+"
+
+[sub_resource type="Animation" id="Animation_g2brh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.1605703]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-6.66, 8.13)]
+}
+
+[sub_resource type="Animation" id="Animation_lj8jo"]
+resource_name = "idl"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.033333335, 0.6666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-6.66, 8.13), Vector2(-6.66, 11.425)]
+}
+
+[sub_resource type="Animation" id="Animation_dn4c7"]
+resource_name = "move"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.46666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.06666667, 0.26666668, 0.5, 0.8333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.1605703, 0.0, -0.1605703]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4vejd"]
+_data = {
+&"RESET": SubResource("Animation_g2brh"),
+&"idl": SubResource("Animation_lj8jo"),
+&"move": SubResource("Animation_dn4c7")
+}
+
+[node name="player" type="CharacterBody2D" groups=["player"]]
+motion_mode = 1
+script = SubResource("GDScript_lj8jo")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_4vejd")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-6.66, 8.13)
+rotation = 0.1605703
+scale = Vector2(0.16113283, 0.16992188)
+texture = ExtResource("1_g2els")
+
+[node name="walkTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-31, 0)
+shadow_enabled = true
+shadow_item_cull_mask = 3
+texture = ExtResource("2_qhqgy")

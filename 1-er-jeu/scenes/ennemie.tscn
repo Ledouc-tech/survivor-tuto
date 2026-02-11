@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://va8rfp0x4mv6"]
+
+[ext_resource type="Texture2D" uid="uid://ciqc1sqbr31bf" path="res://asset/sprites/ant sprites.png" id="1_we2x6"]
+
+[sub_resource type="GDScript" id="GDScript_g88bl"]
+script/source = "extends CharacterBody2D
+
+
+@export var mouvement_speed = 20
+
+@onready var player = get_tree().get_first_node_in_group(\"player\")
+
+
+func _physics_process(_delta): 
+	var direction = global_position.direction_to(player.position)
+	velocity = direction*mouvement_speed
+	move_and_slide()
+"
+
+[node name="ennemie_ant" type="CharacterBody2D" groups=["ennemie"]]
+motion_mode = 1
+script = SubResource("GDScript_g88bl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4.7683716e-07, -1.1920929e-07)
+scale = Vector2(1.05, 1.1250001)
+texture = ExtResource("1_we2x6")
+region_enabled = true
+region_rect = Rect2(246.91193, 99.6412, 25.445862, 28.838646)

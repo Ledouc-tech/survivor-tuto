@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw0iegls3vbu8"]
+
+[ext_resource type="Texture2D" uid="uid://15pfbv7qrhfs" path="res://textures/Items/decors/Spirite_Decors.png" id="1_q3xvg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q3xvg"]
+radius = 182.72275
+height = 1200.125
+
+[node name="caillou" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.115, 0.115)
+texture = ExtResource("1_q3xvg")
+region_enabled = true
+region_rect = Rect2(0, 0, 1528.7549, 1085.9927)
+
+[node name="Area2D" type="Area2D" parent="Sprite2D" groups=["object"]]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+position = Vector2(8.695651, 243.47824)
+rotation = -1.5865043
+shape = SubResource("CapsuleShape2D_q3xvg")
