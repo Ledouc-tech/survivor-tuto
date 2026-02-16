@@ -1,4 +1,5 @@
 Ma premmierre approche de creation de jeux video!
+
 j'ai suivit une serie de video youtube pour comprendre et apprender le processus de creation d'un jeu complet.
 Le jeu est un survivore 2d Top Down, copier sur vampire survivor. J'y ai ajouter mes visuels et je me suis ammuser avec tout les parametres et les lignes de codes pour en comprendre le fonctionnement.
 
