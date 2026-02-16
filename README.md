@@ -15,20 +15,20 @@ J'ai suivit une serie de video sur youtube, pour comprendre et apprender le proc
 lien vers video: https://www.youtube.com/watch?v=abA7TF7z6W8&list=PLtosjGHWDab682nfZ1f6JSQ1cjap7Ieeb
 
 étapes de creation:
--creation du personnage et implementation des mouvements basique et des stats.
--creation d'une til-map et d'une main sceen.
--creation des enemies et scripts basiques.
--creation des hitbox/hurtbox et mise en place des degats. 
--creation premiere arme "spear".
--test global et debug.
--creation des passif et des autres armes.
--initialisation systeme de leveling.
--creation d'un menu et d'un UI in game.
--creation d'un dictionnaire pour ranger les "upgrades" de niveau.
--creation de loot et gestion des differentes options a partir d'une scenne "experience_gems.gd".
-connection des Features pour un fonctionnement global.
--creation d'un spawner et gestion de vague d'enemies.
--finition: musiques, animations, debug, addaptation des visuel et ajustement des parametres. 
+- Creation du personnage et implementation des mouvements basique et des stats.
+- Creation d'une til-map et d'une main sceen.
+- Creation des enemies et scripts basiques.
+- Creation des hitbox/hurtbox et mise en place des degats. 
+- Creation premiere arme "spear".
+- Test global et debug.
+- Creation des passif et des autres armes.
+- Initialisation systeme de leveling.
+- Creation d'un menu et d'un UI in game.
+- Creation d'un dictionnaire pour ranger les "upgrades" de niveau.
+- Creation de loot et gestion des differentes options a partir d'une scenne "experience_gems.gd".
+- Connection des Features pour un fonctionnement global.
+- Creation d'un spawner et gestion de vague d'enemies.
+- Finition: musiques, animations, debug, addaptation des visuel et ajustement des parametres. 
 
 FONCTIONNEMENT 
 
