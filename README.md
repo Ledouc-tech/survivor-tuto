@@ -8,7 +8,7 @@ TECH USE
 
 FEATURES
 Une boucle de jeu complet, du menu à l'ecran de fin.
-Pause integrer, 4 armes differentes, plusieurs passif mineur, deux ennemie differentes, une gestion de la difficulté croissante. 
+3 armes differentes, plusieurs passif mineur, deux ennemie differentes, une gestion de la difficulté croissante. 
 
 PROCESSE
 J'ai suivit une serie de video sur youtube, pour comprendre et apprender le processus de creation de jeu video via godot.
@@ -16,9 +16,21 @@ lien vers video: https://www.youtube.com/watch?v=abA7TF7z6W8&list=PLtosjGHWDab68
 étapes de creation:
 -creation du personnage et implementation des mouvements basique et des stats.
 -creation d'une til-map et d'une main sceen.
--creation 
+-creation des enemies et scripts basiques.
+-creation des hitbox/hurtbox et mise en place des degats. 
+-creation premiere arme "spear".
+-test global et debug.
+-creation des passif et des autres armes.
+-initialisation systeme de leveling.
+-creation d'un menu et d'un UI in game.
+-creation d'un dictionnaire pour ranger les "upgrades" de niveau.
+-creation de loot et gestion des differentes options a partir d'une scenne "experience_gems.gd".
+connection des Features pour un fonctionnement global.
+-creation d'un spawner et gestion de vague d'enemies.
+-finition: musiques, animations, debug, addaptation des visuel et ajustement des parametres. 
 
 FONCTIONNEMENT 
+
 
 WHAT I LEARN 
 
