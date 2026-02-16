@@ -13,6 +13,7 @@ Une boucle de jeu complet, du menu à l'ecran de fin.
 PROCESSE
 J'ai suivit une serie de video sur youtube, pour comprendre et apprender le processus de creation de jeu video via godot.
 lien vers video: https://www.youtube.com/watch?v=abA7TF7z6W8&list=PLtosjGHWDab682nfZ1f6JSQ1cjap7Ieeb
+
 étapes de creation:
 -creation du personnage et implementation des mouvements basique et des stats.
 -creation d'une til-map et d'une main sceen.
